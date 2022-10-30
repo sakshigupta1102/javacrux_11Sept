@@ -1,3 +1,5 @@
+package doubtclass1;
+
 import java.util.*;
 public class bostonnumber {
     public static void main(String args[]) {
