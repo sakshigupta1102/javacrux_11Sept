@@ -1,7 +1,5 @@
 package session14;
-
 public class cointoss {
-
 	public static void main(String[] args) {
 		cointoss(3, "");
 	}
