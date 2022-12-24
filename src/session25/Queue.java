@@ -4,7 +4,9 @@ public class Queue {
 	
 	int[] data;
 	int front=0;
-	int size=0;
+	public int size=0;
+	
+	
 	public Queue(){
 		this.data = new int[5];
 	}
@@ -38,6 +40,15 @@ public class Queue {
 			throw new Exception("QUEUE IS empty");
 		}
 		return this.data[this.front];
+	}
+	@Override
+	public String toString(){
+		StringBuilder sb = new StringBuilder();
+		for(int i=0;i<this.size;i++){
+			sb.append(this.data[  (front+i )% this.data.length  ]+"   ");
+		}
+		return sb.toString();
+		
 	}
 	
 	public void display(){
