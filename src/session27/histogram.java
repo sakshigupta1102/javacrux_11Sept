@@ -1,7 +1,6 @@
 package session27;
-
+import java.util.Stack;
 public class histogram {
-
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
