@@ -7,7 +7,8 @@ public class btclient {
 		Binarytree tree = new Binarytree(str);
 		tree.display();
 		tree.postorder();
-
+		tree.levelorder();
+		System.out.println(tree.isbalanced2());
 	}
 
 }

@@ -1,6 +1,6 @@
 package session31;
 
-import java.util.Scanner;
+import java.util.*;
 
 public class Binarytree {
 	class Node {
@@ -163,6 +163,104 @@ public class Binarytree {
 		postorder(node.left);
 		postorder(node.right);
 		System.out.print(node.data + " ");
+
+	}
+
+	public void levelorder(Node node) {
+		Queue<Node> queue = new LinkedList<Binarytree.Node>();
+		queue.add(node);
+		while (!queue.isEmpty()) {
+			Node cn = queue.remove();
+			System.out.println(cn.data);
+			if (cn.left != null)
+				queue.add(cn.left);
+			if (cn.right != null)
+				queue.add(cn.right);
+		}
+	}
+
+	public void levelorder() {
+		// TODO Auto-generated method stub
+		levelorder(root);
+	}
+
+	public int diameter(Node node) {
+
+		if (node == null)
+			return 0;
+		int lans = diameter(node.left);
+		int rans = diameter(node.right);
+		int self = height(node.left) + height(node.right) + 2;
+		return Math.max(self, Math.max(rans, lans));
+
+	}
+
+	public int diameter() {
+		// TODO Auto-generated method stub
+		return diameter(root);
+	}
+
+	class diapair {
+		int ht = -1;
+		int dia = 0;
+	}
+
+	public boolean isbalanced() {
+		return isbalanced(root);
+	}
+  class balpair{
+	  int ht = -1;
+	  boolean isbal = true;
+  }
+  public boolean isbalanced2(){
+	  balpair ans = isbalanced2(root);
+	  return ans.isbal;
+	
+  }
+  public balpair isbalanced2(Node node){
+	  if(node == null) return new balpair();
+	  balpair lbp = isbalanced2(node.left);
+	  balpair rbp = isbalanced2(node.right);
+	  balpair sp = new balpair();
+	  sp.ht  = Math.max(lbp.ht, rbp.ht) +1;
+	  int bf = lbp.ht - rbp.ht;
+	  boolean selfbal = bf==0|| bf==1 || bf==-1;
+	  sp.isbal = lbp.isbal && rbp.isbal && selfbal;
+	  return sp;
+	  
+			  
+  }
+  
+  
+  
+  
+	public boolean isbalanced(Node node) {
+		if (node == null)
+			return true;
+		boolean isleftbal = isbalanced(node.left);
+		boolean isrightbal = isbalanced(node.right);
+		int bf = height(node.left) - height(node.right);
+		boolean selffac = bf == 1 || bf == 0 || bf == -1;
+		return isleftbal && isrightbal && selffac;
+
+	}
+
+	public int diameter2() {
+		diapair ans = diameter2(root);
+		return ans.dia;
+	}
+
+	public diapair diameter2(Node node) {
+		if (node == null) {
+			return new diapair();
+		}
+		diapair ldp = diameter2(node.left);
+		diapair rdp = diameter2(node.right);
+		diapair sdp = new diapair();
+		sdp.ht = Math.max(ldp.ht, rdp.ht) + 1;
+		int dia = ldp.ht + rdp.ht + 2;
+		sdp.dia = Math.max(dia, Math.max(ldp.dia, rdp.dia));
+		return sdp;
 	}
 
 }
