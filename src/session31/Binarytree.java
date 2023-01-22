@@ -208,32 +208,32 @@ public class Binarytree {
 	public boolean isbalanced() {
 		return isbalanced(root);
 	}
-  class balpair{
-	  int ht = -1;
-	  boolean isbal = true;
-  }
-  public boolean isbalanced2(){
-	  balpair ans = isbalanced2(root);
-	  return ans.isbal;
-	
-  }
-  public balpair isbalanced2(Node node){
-	  if(node == null) return new balpair();
-	  balpair lbp = isbalanced2(node.left);
-	  balpair rbp = isbalanced2(node.right);
-	  balpair sp = new balpair();
-	  sp.ht  = Math.max(lbp.ht, rbp.ht) +1;
-	  int bf = lbp.ht - rbp.ht;
-	  boolean selfbal = bf==0|| bf==1 || bf==-1;
-	  sp.isbal = lbp.isbal && rbp.isbal && selfbal;
-	  return sp;
-	  
-			  
-  }
-  
-  
-  
-  
+
+	class balpair {
+		int ht = -1;
+		boolean isbal = true;
+	}
+
+	public boolean isbalanced2() {
+		balpair ans = isbalanced2(root);
+		return ans.isbal;
+
+	}
+
+	public balpair isbalanced2(Node node) {
+		if (node == null)
+			return new balpair();
+		balpair lbp = isbalanced2(node.left);
+		balpair rbp = isbalanced2(node.right);
+		balpair sp = new balpair();
+		sp.ht = Math.max(lbp.ht, rbp.ht) + 1;
+		int bf = lbp.ht - rbp.ht;
+		boolean selfbal = bf == 0 || bf == 1 || bf == -1;
+		sp.isbal = lbp.isbal && rbp.isbal && selfbal;
+		return sp;
+
+	}
+
 	public boolean isbalanced(Node node) {
 		if (node == null)
 			return true;
@@ -261,6 +261,25 @@ public class Binarytree {
 		int dia = ldp.ht + rdp.ht + 2;
 		sdp.dia = Math.max(dia, Math.max(ldp.dia, rdp.dia));
 		return sdp;
+	}
+
+	public boolean haspathsum(int sum) {
+		return haspathsum(root, sum);
+	}
+
+	public boolean haspathsum(Node node, int targetsum) {
+		if (node == null)
+			return false;
+
+		if (node.left == null && node.right == null) {
+			// leaf node
+			return targetsum - node.data == 0;
+		}
+
+		boolean lans = haspathsum(node.left, targetsum - node.data);
+		boolean rans = haspathsum(node.right, targetsum - node.data);
+		return lans || rans;
+
 	}
 
 }
