@@ -85,4 +85,39 @@ public class graph {
 		}
 		visited.remove(src);
 	}
+	public boolean BFS(int src, int des){
+		
+		LinkedList<Integer> qq = new LinkedList();
+		HashSet<Integer> visited = new HashSet();
+		qq.add(src);
+		while(!qq.isEmpty()){
+			int r = qq.remove();
+			if(visited.contains(r)){
+				continue;
+			}
+			visited.add(r);
+			if(r==des) return true;
+			for(int nbrs : map.get(r).keySet()){
+				if(!visited.contains(nbrs)){
+					qq.add(nbrs);
+				}
+			}
+		}
+		return false;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }
