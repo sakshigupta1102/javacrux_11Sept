@@ -8,7 +8,7 @@ public class lexocount {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		List<Integer> list = new ArrayList();
-		lexo(0, 30,list);
+		lexo(0, 100,list);
 		System.out.println(list);
 	}
 

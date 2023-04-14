@@ -1,11 +1,8 @@
 package session15;
-
 public class subseq {
-
 	public static void main(String[] args) {
-subseq("abc", "");
+      subseq("abc", "");
 	}
-
 	public static void subseq(String ques, String ans) {
 		if (ques.length() == 0) {
 			System.out.println(ans);

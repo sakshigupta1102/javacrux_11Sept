@@ -8,10 +8,10 @@ public class subset1 {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		int[] arr = { 1, 2, 3 };
-		ArrayList<ArrayList<Integer>> big = new ArrayList();
-		ArrayList<Integer> small = new ArrayList();
-		subset1(arr, small, 0,big);
-		System.out.println(big);
+//		ArrayList<ArrayList<Integer>> big = new ArrayList();
+//		ArrayList<Integer> small = new ArrayList();
+		subset1(arr, "",0);
+		//System.out.println(big);
 	}
 
 	public static void subset1(int[] arr, String ans, int vidx) {

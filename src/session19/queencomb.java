@@ -15,10 +15,8 @@ public class queencomb {
 			if(board[i] == false){
 				board[i] = true; // placing queen
 				queencomb(board, tq, qpsf+1, ans+"b" +i + "q" + qpsf, i);
-				board[i] = false;   // backtracking removing queen 
-				
+				board[i] = false;   // backtracking removing queen 	
 			}
-			
 		}
 		
 		

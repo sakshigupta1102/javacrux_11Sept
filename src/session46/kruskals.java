@@ -1,11 +1,9 @@
 package session46;
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Scanner;
-
 public class kruskals {
 	HashMap<Integer, HashMap<Integer, Integer>> map;
 
@@ -77,6 +75,12 @@ public class kruskals {
 		
 	}
 	public static void main(String[] args) {
+//		4 5 
+//		1 2 10
+//		2 3 15
+//		1 3 5
+//		4 2 2
+//		4 3 40
 		Scanner scan = new Scanner(System.in);
 		int n= scan.nextInt();
 		kruskals ks = new kruskals(n);
